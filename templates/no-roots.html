@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Решение квадратных уравнений</title>
+    <link href="{{ url_for('static', filename='index.css')}}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <form class="calculator" action="/" method="POST">
+            <h4 class="calculator__header">Решение квадратных уравнений</h4>
+
+            <hr class="calculator__separator">
+
+            <p class="equation-template">ax<sup>2</sup> + bx + c = 0</p>
+
+            <div class="calculator__inputs">
+                <label class="calculator__label" for="a">a =</label>
+                <input class="calculator__input" type="text" name="a" placeholder="a" required>
+
+                <label class="calculator__label" for="b">b =</label>
+                <input class="calculator__input" type="text" name="b" placeholder="b" required>
+
+                <label class="calculator__label" for="c">c =</label>
+                <input class="calculator__input" type="text" name="c" placeholder="c" required>
+            </div>
+
+            <p class="user-equation">{{a}}x<sup>2</sup> + {{b}}x + {{c}} = 0</p>
+
+            <hr class="calculator__separator">
+
+            <button class="calculator__button" type="submit">Решить уравнение</button>
+        </form>
+
+        <div class="answer">
+            <p class="answer__title">Решение</p>
+
+            <p>Дискриминант равен:</p>
+            <p class="answer__discriminant">D = b<sup>2</sup> - 4∙a∙c = {{b}}<sup>2</sup> - 4∙{{a}}∙{{c}} = {{D}}</p>
+
+            <!-- Нет корней -->
+            <p>Дискриминант < 0, следовательно уравнение <span class="answer__span">не имеет</span> действительных корней!</p>
+        </div>
+    </div>
+</body>
+</html>
